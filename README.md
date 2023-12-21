@@ -1,2 +1,2 @@
 # sample-lucid-rest-applications
-Example REST API apps for Lucid (lucid.app)
+This repo contains the code for some Lucid-built REST API apps or scripts (lucid.app). Check out each subfolder to see individual apps/scripts and how they work. Here is our [official documenation](https://developer.lucid.co/).

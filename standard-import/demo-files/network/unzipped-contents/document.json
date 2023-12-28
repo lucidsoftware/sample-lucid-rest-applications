@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "id": "network",
+      "dataSource": "Network.csv"
+    }
+  ],
+  "pages": [
+    {
+      "id": "page1",
+      "title": "Main Plan",
+      "shapes": [
+        {
+          "id": "block1",
+          "type": "rectangle",
+          "boundingBox": {
+            "x": 583,
+            "y": 840,
+            "w": 160,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "1"
+            }
+          ]
+        },
+        {
+          "id": "block2",
+          "type": "database",
+          "boundingBox": {
+            "x": 480,
+            "y": 1040,
+            "w": 120,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "2"
+            }
+          ]
+        },
+        {
+          "id": "block3",
+          "type": "database",
+          "boundingBox": {
+            "x": 723,
+            "y": 1040,
+            "w": 120,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "3"
+            }
+          ]
+        },
+        {
+          "id": "block4",
+          "type": "database",
+          "boundingBox": {
+            "x": 1028,
+            "y": 1040,
+            "w": 120,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "4"
+            }
+          ]
+        },
+        {
+          "id": "block5",
+          "type": "rectangle",
+          "boundingBox": {
+            "x": 1008,
+            "y": 840,
+            "w": 160,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "5"
+            }
+          ]
+        },
+        {
+          "id": "block6",
+          "type": "database",
+          "boundingBox": {
+            "x": 1028,
+            "y": 653,
+            "w": 120,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "6"
+            }
+          ]
+        },
+        {
+          "id": "block7",
+          "type": "database",
+          "boundingBox": {
+            "x": 603,
+            "y": 653,
+            "w": 120,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "7"
+            }
+          ]
+        },
+        {
+          "id": "block8",
+          "type": "rectangle",
+          "boundingBox": {
+            "x": 795,
+            "y": 431,
+            "w": 160,
+            "h": 120
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "8"
+            }
+          ]
+        },
+        {
+          "id": "block9",
+          "type": "terminator",
+          "boundingBox": {
+            "x": 795,
+            "y": 218,
+            "w": 160,
+            "h": 80
+          },
+          "style": {
+            "stroke": {
+              "color": "#6f2131",
+              "width": 3.0,
+              "style": "solid"
+            }
+          },
+          "text": "{{=@'System Name'}}",
+          "linkedData": [
+            {
+              "collectionId": "network",
+              "key": "9"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

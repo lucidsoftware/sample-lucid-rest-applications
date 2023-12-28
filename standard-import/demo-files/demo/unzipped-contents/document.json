@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "id": "Fellowship",
+      "dataSource": "Fellowship - Sheet1.csv"
+    }
+  ],
+  "pages": [
+    {
+      "id": "mainPlan",
+      "title": "Main Plan",
+      "shapes": [
+        {
+          "id": "mainTitle",
+          "type": "rectangle",
+          "boundingBox": { "x": 20, "y": 40, "w": 900, "h": 80 },
+          "style": {
+            "stroke": { "width": 3 }
+          },
+          "text": "<span style='text-align: left; color: #333333; font-size: 21pt; font-weight: bold;'>One Import to Rule Them All</span>"
+        },
+        {
+          "id": "mainImage",
+          "type": "image",
+          "boundingBox": { "x": 1640, "y": 39.999999999999936, "w": 80.50697084917624, "h": 80.00000000000007 },
+          "image": { "type": "ref", "ref": "lucid-lotr.png" },
+          "stroke": { "width": 3 }
+        },
+        {
+          "id": "swimlane",
+          "type": "swimLanes",
+          "boundingBox": { "x": 140, "y": 200, "w": 1390.6666666666665, "h": 960 },
+          "style": {
+            "stroke": { "color": "#062327ff", "width": 5 }
+          },
+          "magnetize": true,
+          "vertical": false,
+          "titleBar": { "height": 40, "verticalText": true },
+          "lanes": [
+            { "title": "<span style='color: #ffffff; font-weight: bold; font-size: 14pt;'>Phase One</span>", "width": 320, "headerFill": "#062327ff", "laneFill": "#ffffff" },
+            { "title": "<span style='color: #ffffff; font-weight: bold; font-size: 14pt;'>Phase Two</span>", "width": 320, "headerFill": "#062327ff", "laneFill": "#ffffff" },
+            { "title": "<span style='color: #ffffff; font-weight: bold; font-size: 14pt;'>Phase Three</span>", "width": 320, "headerFill": "#062327ff", "laneFill": "#ffffff" }
+          ]
+        },
+        {
+          "id": "block1",
+          "type": "process",
+          "boundingBox": { "x": 290, "y": 300, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "1" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block2",
+          "type": "process",
+          "boundingBox": { "x": 550, "y": 300, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "2" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block3",
+          "type": "process",
+          "boundingBox": { "x": 790, "y": 300, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "3" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block4",
+          "type": "terminator",
+          "boundingBox": { "x": 1050, "y": 300, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "4" }
+          ],
+          "actions": [
+            { "type": "gotoPage", "pageId": "secretPlan" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block5",
+          "type": "process",
+          "boundingBox": { "x": 290, "y": 620, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "5" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block6",
+          "type": "process",
+          "boundingBox": { "x": 550, "y": 620, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "6" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block7",
+          "type": "process",
+          "boundingBox": { "x": 790, "y": 620, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "7" }
+          ],
+          "actions": [
+            { "type": "url", "url": "https://www.youtube.com/watch?v=EApCLbgAE5E", "newWindow": true }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block8",
+          "type": "process",
+          "boundingBox": { "x": 1050, "y": 620, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "8" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block9",
+          "type": "terminator",
+          "boundingBox": { "x": 1310, "y": 620, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "9" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block10",
+          "type": "process",
+          "boundingBox": { "x": 290, "y": 940, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "10" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "block11",
+          "type": "process",
+          "boundingBox": { "x": 550, "y": 940, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 7pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "11" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "showButton",
+          "type": "terminator",
+          "boundingBox": { "x": 1560.5069708491762, "y": 200, "w": 160, "h": 80 },
+          "style": {
+            "fill": { "type": "color", "color": "#c6263bff" },
+            "stroke": { "width": 3 }
+          },
+          "text": "<span style='font-weight: bold; font-size: 10pt; color: #ffffff;'>Show Notes</span>",
+          "actions": [
+            { "type": "showLayer", "layers": ["notesLayer"] }
+          ]
+        },
+        {
+          "id": "note1",
+          "type": "stickyNote",
+          "boundingBox": { "x": 860, "y": 200, "w": 165, "h": 119.99999999999997 },
+          "text": "<span style='font-weight: bold; font-style: italic; font-size: 10pt;'>Can anyone tell me wtf is a \"Baggins\"</span>"
+        },
+        {
+          "id": "note2",
+          "type": "stickyNote",
+          "boundingBox": { "x": 1440, "y": 500, "w": 190, "h": 148.99999999999997 },
+          "text": "<span style='font-weight: bold; font-style: italic; font-size: 10pt;'>Are we sure we want to try to defeat Gandalf?</span>"
+        },
+        {
+          "id": "note3",
+          "type": "stickyNote",
+          "boundingBox": { "x": 680, "y": 1000, "w": 200, "h": 140 },
+          "text": "<span style='font-weight: bold; font-style: italic; font-size: 10pt;'>But what do we want for 2nd bfast? Is meat back on the menu?</span>"
+        },
+        {
+          "id": "hideButton",
+          "type": "terminator",
+          "boundingBox": { "x": 1560.5069708491762, "y": 200, "w": 160, "h": 80 },
+          "style": {
+            "fill": { "type": "color", "color": "#c6263bff" },
+            "stroke": { "width": 3 }
+          },
+          "text": "<span style='font-weight: bold; font-size: 10pt; color: #ffffff;'>Hide Notes</span>",
+          "actions": [
+            { "type": "hideLayer", "layers": ["notesLayer"] }
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "id": "line1-2",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block1","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block2","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line2-3",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block2","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block3","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line3-4",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block3","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block4","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line4-5",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block4","position":{"x":0.5,"y":1}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block5","position":{"x":0.5,"y":0} }
+        },
+        {
+          "id": "line5-6",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block5","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block6","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line6-7",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block6","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block7","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line7-8",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block7","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block8","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line8-9",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block8","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block9","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "line9-10",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block9","position":{"x":0.5,"y":1}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block10","position":{"x":0.5,"y":0} }
+        },
+        {
+          "id": "line10-11",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"block10","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"block11","position":{"x":0,"y":0.5} }
+        }
+      ],
+      "layers": [
+        { "id": "notesLayer", "title": "Notes", "items": ["note1", "note2", "note3", "hideButton"] }
+      ]
+    },
+    {
+      "id": "secretPlan",
+      "title": "Secret Plan",
+      "shapes": [
+        {
+          "id": "secretTitle",
+          "type": "rectangle",
+          "boundingBox": { "x": 20, "y": 40, "w": 900, "h": 80 },
+          "style": {
+            "stroke": { "width": 3 }
+          },
+          "text": "<span style='text-align: left; color: #333333; font-size: 21pt; font-weight: bold;'>One Import to Rule Them All</span>"
+        },
+        {
+          "id": "secretImage",
+          "type": "image",
+          "boundingBox": { "x": 1640, "y": 39.999999999999936, "w": 80.50697084917624, "h": 80.00000000000007 },
+          "image": { "type": "ref", "ref": "lucid-lotr.png" },
+          "stroke": { "width": 3 }
+        },
+        {
+          "id": "secret1",
+          "type": "process",
+          "boundingBox": { "x": 550, "y": 560, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "12" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "secret2",
+          "type": "process",
+          "boundingBox": { "x": 810, "y": 560, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "13" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        },
+        {
+          "id": "secret3",
+          "type": "process",
+          "boundingBox": { "x": 1050, "y": 560, "w": 160, "h": 120 },
+          "style": {
+            "stroke": { "color": "#6f2131ff", "width": 3 }
+          },
+          "text": "<span style='font-style: italic; font-size: 10pt; color: #000000;'>{{=referencekey(1).'Task'}}</span>",
+          "actions": [
+            { "type": "gotoPage", "pageId": "mainPlan" }
+          ],
+          "linkedData": [
+            { "collectionId": "Fellowship", "key": "14" }
+          ],
+          "customData": [
+            { "key": "RingScore", "value": "=@\"Rings of Power Obtained\"*@\"Chance of Success\"" }
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "id": "secretLine1-2",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"secret1","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"secret2","position":{"x":0,"y":0.5} }
+        },
+        {
+          "id": "secretLine2-3",
+          "lineType": "elbow",
+          "stroke":{ "color": "#c6263bff", "width": 3 },
+          "endpoint1":{ "type":"shapeEndpoint","style":"none","shapeId":"secret2","position":{"x":1,"y":0.5}},
+          "endpoint2":{ "type":"shapeEndpoint","style":"arrow","shapeId":"secret3","position":{"x":0,"y":0.5} }
+        }
+      ]
+    }
+  ]
+}

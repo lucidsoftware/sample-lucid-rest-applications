@@ -1,0 +1,10 @@
+ID,System Name,Status,Capacity
+1,Server,Online,3
+2,MongoDB,Online,5
+3,SQLDB,Online,4
+4,Redshift,Offline,7
+5,EC2,Online,3
+6,Load Balancer,Online,8
+7,Load Balancer,Offline,8
+8,Firewall,Online,N/A
+9,Internet,Online,N/A

@@ -1,0 +1,29 @@
+{
+  "version":1,
+  "collections":[
+    {"id": "data","dataSource":"file.csv"}
+  ],
+  "pages":[
+    {
+      "id":"page1",
+      "title":"Entries",
+      "shapes":[
+        {"id":"block0","type":"rectangle","customData":[{"key":"TotalSize","value":"=downstreamlines.FolderSize"}],"linkedData":[{"collectionId":"data","key":"/home/user/openvpn/"}],"boundingBox":{"x":0,"y":0,"w":320,"h":100},"style":{"fill":{"type":"color","color":"#eeeeee"}},"text":"<b>openvpn<br>({{=format_number(@TotalSize, \"#,##0\")}} bytes)</b>"},
+        {"id":"block1","type":"rectangle","customData":[{"key":"TotalSize","value":"=downstreamlines.FolderSize"}],"linkedData":[{"collectionId":"data","key":"/home/user/openvpn/lucid"}],"boundingBox":{"x":360,"y":110,"w":320,"h":100},"style":{"fill":{"type":"color","color":"#eeeeee"}},"text":"<b>lucid<br>({{=format_number(@TotalSize, \"#,##0\")}} bytes)</b>"},
+        {"id":"block2","type":"document","linkedData":[{"collectionId":"data","key":"/home/user/openvpn/lucid/client.crt"}],"boundingBox":{"x":720,"y":220,"w":320,"h":100},"text":"client.crt<br>({{=format_number(@size, \"#,##0\")}} bytes)"},
+        {"id":"block3","type":"document","linkedData":[{"collectionId":"data","key":"/home/user/openvpn/lucid/client.key"}],"boundingBox":{"x":720,"y":330,"w":320,"h":100},"text":"client.key<br>({{=format_number(@size, \"#,##0\")}} bytes)"},
+        {"id":"block4","type":"document","linkedData":[{"collectionId":"data","key":"/home/user/openvpn/lucid/server.crt"}],"boundingBox":{"x":720,"y":440,"w":320,"h":100},"text":"server.crt<br>({{=format_number(@size, \"#,##0\")}} bytes)"},
+        {"id":"block5","type":"document","linkedData":[{"collectionId":"data","key":"/home/user/openvpn/lucid-static.conf"}],"boundingBox":{"x":360,"y":550,"w":320,"h":100},"text":"lucid-static.conf<br>({{=format_number(@size, \"#,##0\")}} bytes)"},
+        {"id":"block6","type":"document","linkedData":[{"collectionId":"data","key":"/home/user/openvpn/vpnuserpass"}],"boundingBox":{"x":360,"y":660,"w":320,"h":100},"text":"vpnuserpass<br>({{=format_number(@size, \"#,##0\")}} bytes)"}
+      ],
+      "lines":[
+        {"id":"line0-1","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block0","position":{"x":1,"y":0.5}},"endpoint2":{"type":"shapeEndpoint","style":"arrow","shapeId":"block1","position":{"x":0.5,"y":0}},"customData":[{"key":"FolderSize","value":"=sum(downstreamdeep.size)"}]},
+        {"id":"line1-2","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block1","position":{"x":1,"y":0.5}},"endpoint2":{"type":"shapeEndpoint","style":"arrow","shapeId":"block2","position":{"x":0.5,"y":0}},"customData":[{"key":"FolderSize","value":"=sum(downstreamdeep.size)"}]},
+        {"id":"line2-3","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block2","position":{"x":0.5,"y":1}},"endpoint2":{"type":"shapeEndpoint","style":"none","shapeId":"block3","position":{"x":0.5,"y":0}}},
+        {"id":"line3-4","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block3","position":{"x":0.5,"y":1}},"endpoint2":{"type":"shapeEndpoint","style":"none","shapeId":"block4","position":{"x":0.5,"y":0}}},
+        {"id":"line1-5","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block1","position":{"x":0.5,"y":1}},"endpoint2":{"type":"shapeEndpoint","style":"none","shapeId":"block5","position":{"x":0.5,"y":0}}},
+        {"id":"line5-6","lineType":"elbow","endpoint1":{"type":"shapeEndpoint","style":"none","shapeId":"block5","position":{"x":0.5,"y":1}},"endpoint2":{"type":"shapeEndpoint","style":"none","shapeId":"block6","position":{"x":0.5,"y":0}}}
+      ]
+    }
+  ]
+}

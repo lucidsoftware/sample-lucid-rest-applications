@@ -43,7 +43,8 @@ pip install requests
 * Use the Lucid interface to further analyze and manage these issues conveniently.
 
 ## Configuration and Environment Variables
-This script requires specific environment variables to be set in a `.env` file within the project directory. Create a .env file with the following variables:
+This script requires specific environment variables to be set in a `.env` file within the project directory. Note that the `.env` file must be in the same directory as `jira_to_lucid_doc.py` 
+Create a .env file with the following variables:
 
 * #### JIRA_API_KEY: API key or token for Jira authentication.
 * #### JIRA_AUTH_EMAIL: Email associated with the Jira account.

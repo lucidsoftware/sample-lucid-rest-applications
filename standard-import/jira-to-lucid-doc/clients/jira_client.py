@@ -1,18 +1,18 @@
 from argparse import Namespace
 from datetime import datetime
+from os import getenv
 from requests import request
 from requests.auth import HTTPBasicAuth
 from typing import List, Dict, Any
-from utils.file_utils import save_raw_issues_to_json, save_parsed_issues_to_csv
 import json
-import os
+from utils.file_utils import save_raw_issues_to_json, save_parsed_issues_to_csv
 
 
 def get_jira_issues(email: str, year: int) -> List[Dict[str, Any]]:
   print("Fetching issues from Jira...")
-  url = f"https://{os.getenv('JIRA_SUBDOMAIN')}.atlassian.net/rest/api/3/search"
+  url = f"https://{getenv('JIRA_SUBDOMAIN')}.atlassian.net/rest/api/3/search"
  
-  auth = HTTPBasicAuth(os.getenv("JIRA_AUTH_EMAIL"), os.getenv("JIRA_API_KEY"))
+  auth = HTTPBasicAuth(getenv("JIRA_AUTH_EMAIL"), getenv("JIRA_API_KEY"))
  
   headers = {
     "Accept": "application/json"

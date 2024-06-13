@@ -186,7 +186,7 @@ def get_lucid_json(bpmn: Dict[str, Any]):
     
 
 
-def parse_object(bpmn_object: Dict[str, Any], format: bool):
+def parse_object(bpmn_object: Dict[str, Any], format: bool = False):
     if bpmn_object['type'] == 'file':
         lucid_json = get_lucid_json(bpmn_object)
         if format:
@@ -195,10 +195,10 @@ def parse_object(bpmn_object: Dict[str, Any], format: bool):
     else:
         docs = []
         for entry in bpmn_object['data']:
-            docs += parse_object(entry)
+            docs += parse_object(entry, format)
         return docs
 
 
-def transform_object_into_lucid_json(bpmn_object: Dict[str, Any], format: bool):
+def transform_object_into_lucid_json(bpmn_object: Dict[str, Any], format: bool = False):
     print("Transforming data into Lucid JSON")
     return parse_object(bpmn_object, format)

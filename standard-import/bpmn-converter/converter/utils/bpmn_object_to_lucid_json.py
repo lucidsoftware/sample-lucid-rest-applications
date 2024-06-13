@@ -8,6 +8,7 @@ from utils.line_utils import parse_lines, process_edges
 from utils.lane_utils import parse_lanes
 from utils.annotation_utils import parse_text_annotations
 from utils.namespace_utils import remove_namespace_prefixes
+from utils.si_formatter_util import forceSIFormatting
 
 def get_lines_in_process(process: dict, bpmn_edges: list, lucid_shapes: list):
     lucid_lines = []
@@ -145,13 +146,13 @@ def get_lucid_json(bpmn: Dict[str, Any]):
             }
         ]
     }
-    removedPrefixes = False
-    if 'definitions' not in bpmn_doc:
-        bpmn_doc = remove_namespace_prefixes(bpmn_doc)
-        removedPrefixes = True
+    #removedPrefixes = False
+    #if 'definitions' not in bpmn_doc:
+    bpmn_doc = remove_namespace_prefixes(bpmn_doc)
+    removedPrefixes = True
 
     if 'definitions' in bpmn_doc:
-        definitions =  bpmn_doc['definitions']  
+        definitions =  bpmn_doc['definitions']
         processes = definitions['process']
         processes_as_list = [processes] if not isinstance(processes, list) else processes
         diagrams = {}
@@ -167,7 +168,6 @@ def get_lucid_json(bpmn: Dict[str, Any]):
             shapes_dir = get_bpmn_shapes(planes, 'bpmndi:BPMNShape')
 
         bpmn_edges = process_edges(planes)
-
         lucid_shapes  = parse_processes_list(processes_as_list, shapes_dir)
         lucid_lines = parse_processes_lines_list(processes_as_list, bpmn_edges, lucid_shapes)
 
@@ -186,9 +186,11 @@ def get_lucid_json(bpmn: Dict[str, Any]):
     
 
 
-def parse_object(bpmn_object: Dict[str, Any]):
+def parse_object(bpmn_object: Dict[str, Any], format: bool):
     if bpmn_object['type'] == 'file':
         lucid_json = get_lucid_json(bpmn_object)
+        if format:
+            lucid_json = forceSIFormatting(lucid_json)
         return [lucid_json] if lucid_json != None else []
     else:
         docs = []
@@ -197,6 +199,6 @@ def parse_object(bpmn_object: Dict[str, Any]):
         return docs
 
 
-def transform_object_into_lucid_json(bpmn_object: Dict[str, Any]):
+def transform_object_into_lucid_json(bpmn_object: Dict[str, Any], format: bool):
     print("Transforming data into Lucid JSON")
-    return parse_object(bpmn_object)
+    return parse_object(bpmn_object, format)

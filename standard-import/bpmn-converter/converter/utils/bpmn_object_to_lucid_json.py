@@ -188,6 +188,7 @@ def get_lucid_json(bpmn: Dict[str, Any]):
 
 def parse_object(bpmn_object: Dict[str, Any], format: bool = False):
     if bpmn_object['type'] == 'file':
+        print(f"Transforming data into Lucid JSON for file: '{bpmn_object['file_name']}'")
         lucid_json = get_lucid_json(bpmn_object)
         if format:
             lucid_json = forceSIFormatting(lucid_json)
@@ -200,5 +201,4 @@ def parse_object(bpmn_object: Dict[str, Any], format: bool = False):
 
 
 def transform_object_into_lucid_json(bpmn_object: Dict[str, Any], format: bool = False):
-    print("Transforming data into Lucid JSON")
     return parse_object(bpmn_object, format)

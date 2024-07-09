@@ -31,7 +31,7 @@ def oauth():
             'redirect_uri': callback_uri}
 
     print("requesting access token")
-    access_token_response = requests.post(token_url, json=data, verify=False, allow_redirects=False)
+    access_token_response = requests.post(token_url, json=data, allow_redirects=False)
 
     # we can now use the access_token as much as we want to access protected resources.
     tokens = json.loads(access_token_response.text)

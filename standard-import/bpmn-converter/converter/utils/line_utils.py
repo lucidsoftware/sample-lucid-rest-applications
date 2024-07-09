@@ -66,7 +66,10 @@ def normalize_coordinates(x, y, x_min, y_min, x_max, y_max):
     relative_x = (x - x_min) / (x_max - x_min)
     relative_y = (y - y_min) / (y_max - y_min)
 
-    return relative_x, relative_y
+    clamped_x = max(0, min(1, relative_x))
+    clamped_y = max(0, min(1, relative_y))
+
+    return clamped_x, clamped_y
 
 def getPosition(shape: dict, waypoint: dict):
     x_min, y_min, x_max, y_max = get_bounding_box_coordinates(shape)

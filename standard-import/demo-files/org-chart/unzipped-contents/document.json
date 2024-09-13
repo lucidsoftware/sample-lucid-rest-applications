@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "product": "lucidchart",
+  "pages": [
+    {
+      "id": "page1",
+      "title": "Org Chart Example",
+      "dataBackedShapes": [
+        {
+          "id": "orgChart1",
+          "type": "orgChart",
+          "position": {
+            "x": 150,
+            "y": 150
+          },
+          "collectionId": "org-chart-data",
+          "idField": "Employee ID",
+          "foreignKeyField": "Supervisor ID",
+          "nameField": "Full Name",
+          "roleField": "Role",
+          "imageUrlField": "Image",
+          "extraFields": [
+            "Email",
+            "Cell Phone",
+            "Building"
+          ]
+        }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "id": "org-chart-data",
+      "dataSource": "org-chart-data.csv"
+    }
+  ]
+}

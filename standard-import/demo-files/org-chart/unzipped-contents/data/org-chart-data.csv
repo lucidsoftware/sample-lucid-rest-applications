@@ -1,0 +1,31 @@
+Employee ID,Full Name,Building,Role,Supervisor ID,Image,Cell Phone,Email
+E001,Alice Smith,HQ,CEO,,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,123-456-7890,alice@company.com
+E002,Bob Johnson,HQ,CFO,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,234-567-8901,bob@company.com
+E003,Charlie Lee,HQ,CTO,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,345-678-9012,charlie@company.com
+E004,David Kim,Office A,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,456-789-0123,david@company.com
+E005,Eva Green,Office A,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,567-890-1234,eva@company.com
+E006,Frank White,Office A,Engineer,E004,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,678-901-2345,frank@company.com
+E007,Grace Brown,Office B,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,789-012-3456,grace@company.com
+E008,Henry Black,Office B,Engineer,E007,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,890-123-4567,henry@company.com
+E009,Ivy Adams,Office B,Intern,E008,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,901-234-5678,ivy@company.com
+E010,Jack Davis,HQ,COO,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,012-345-6789,jack@company.com
+E011,Karen Wilson,HQ,Legal,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,123-456-7890,karen@company.com
+E012,Leo Clark,Office A,Manager,E010,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,234-567-8901,leo@company.com
+E013,Mona Bell,Office A,Engineer,E012,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,345-678-9012,mona@company.com
+E014,Nina Foster,Office A,Designer,E012,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,456-789-0123,nina@company.com
+E015,Oscar Hughes,Office B,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,567-890-1234,oscar@company.com
+E016,Paula Perry,Office B,Engineer,E015,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,678-901-2345,paula@company.com
+E017,Quinn Moore,HQ,HR,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,789-012-3456,quinn@company.com
+E018,Rachel Stewart,Office A,Engineer,E017,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,890-123-4567,rachel@company.com
+E019,Steve Parker,Office A,Designer,E019,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,901-234-5678,steve@company.com
+E020,Tina Roberts,Office B,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,012-345-6789,tina@company.com
+E021,Uma Evans,HQ,Engineer,E020,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,123-456-7890,uma@company.com
+E022,Vince Baker,Office A,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,234-567-8901,vince@company.com
+E023,Wendy Wright,Office A,Engineer,E022,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,345-678-9012,wendy@company.com
+E024,Xander Young,Office B,Designer,E023,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,456-789-0123,xander@company.com
+E025,Yara Scott,Office B,Intern,E023,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,567-890-1234,yara@company.com
+E026,Zane Reed,HQ,Assistant,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,678-901-2345,zane@company.com
+E027,Amy Brooks,HQ,Assistant,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,789-012-3456,amy@company.com
+E028,Brian Turner,Office A,Engineer,E027,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,890-123-4567,brian@company.com
+E029,Cathy Mitchell,Office A,Designer,E028,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,901-234-5678,cathy@company.com
+E030,Dylan Howard,Office B,Manager,E001,https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg,012-345-6789,dylan@company.com

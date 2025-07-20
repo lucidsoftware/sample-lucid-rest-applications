@@ -41,26 +41,39 @@ def oauth():
     return access_token
 
 def uploadDoc(standard_doc, access_token):
-    doc_name = standard_doc.get('title')
+    doc_name = standard_doc.get("title")
+    lucid_file = doc_name + ".lucid"
+    if os.path.exists(lucid_file):
+        os.remove(lucid_file)  # remove .lucid zip file
+
+    if os.path.exists(doc_name):
+        shutil.rmtree(doc_name)  # remove dir
     print("Uploading doc {0}".format(doc_name))
     os.mkdir(doc_name)
-    lucid_file = doc_name + '.lucid'
 
-    with open(doc_name + '/' + 'document.json', 'w') as f:
+    with open(doc_name + "/" + "document.json", "w") as f:
         json.dump(standard_doc, f)
-    
-    shutil.make_archive(doc_name, 'zip', doc_name)
-    shutil.move(doc_name + '.zip', lucid_file)
+
+    print(json.dumps(standard_doc, indent=2, ensure_ascii=False))
+
+    shutil.make_archive(doc_name, "zip", doc_name)
+    shutil.move(doc_name + ".zip", lucid_file)
 
     upload_url = "https://api.lucid.co/documents"
-    headers = {"Authorization": "Bearer {0}".format(access_token), "Lucid-Api-Version": "1"}
+    headers = {
+        "Authorization": "Bearer {0}".format(access_token),
+        "Lucid-Api-Version": "1",
+    }
     body = {"title": doc_name, "product": "lucidchart"}
     zip_file = open(lucid_file, "rb")
     files = {"file": (lucid_file, zip_file, "x-application/vnd.lucid.standardImport")}
-    upload_response = requests.post("https://api.lucid.co/documents", headers=headers, data=body, files=files)
+    upload_response = requests.post(
+        url=upload_url,
+        headers=headers,
+        data=body,
+        files=files,
+    )
     zip_file.close()
-    os.remove(lucid_file) # remove .lucid zip file
-    shutil.rmtree(doc_name) # remove dir
 
     print(upload_response.content)
 

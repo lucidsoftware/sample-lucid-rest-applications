@@ -32,6 +32,8 @@ def get_lines_in_process(process: dict, bpmn_edges: list, lucid_shapes: list):
     lucid_lines = []
     if "sequenceFlow" in process:
         lucid_lines += parse_lines(process["sequenceFlow"], bpmn_edges, lucid_shapes)
+    if "messageFlow" in process:
+        lucid_lines += parse_lines(process["messageFlow"], bpmn_edges, lucid_shapes)
     return lucid_lines
 
 
@@ -108,7 +110,6 @@ def get_shapes_in_process(process: dict, bpmn_shapes: dict):
             lucid_shapes += parse_lanes(entry, bpmn_shapes)
         elif key == "textAnnotation":
             lucid_shapes += parse_text_annotations(entry, bpmn_shapes)
-
         elif key == "participant":
             lucid_shapes += parse_participant_v2(entry, bpmn_shapes)
 
@@ -117,20 +118,41 @@ def get_shapes_in_process(process: dict, bpmn_shapes: dict):
 
 def parse_collaboration_list(collaborations: list):
     lucid_shapes = []
-    # print(json.dumps(collaborations, indent=2, ensure_ascii=False))
     for values in collaborations:
-        for item in values.keys():
+        for item in values:
             if item == "participant":
-                for p in values["participant"]:
-                    f = {"@id": p["@id"], "participant": p}
-                    lucid_shapes.append(f)
-    #         elif item == "@id":
-    #             lucid_shapes.append({"id": participant["@id"]})
-    #         elif item == "messageFlow":
-    #             lucid_shapes.append({"messageFlow": participant["messageFlow"]})
-    #         # else:
-    #         #     print(f"Unknown key in participant: {item}")
+                lucid_shapes += parse_participant_set(values[item])
+            if item == "messageFlow":
+                lucid_shapes += parse_messageFlow_set(values[item])
 
+    return lucid_shapes
+
+
+def parse_participant_set(item):
+    lucid_shapes = []
+    if isinstance(item, list):
+        for subitem in item:
+            f = {"@id": subitem["@id"], "participant": subitem}
+            lucid_shapes.append(f)
+    elif isinstance(item, dict):
+        f = {"@id": item["@id"], "participant": item}
+        lucid_shapes.append(f)
+    else:
+        print("Unexpected type for participant:", type(item))
+    return lucid_shapes
+
+
+def parse_messageFlow_set(item):
+    lucid_shapes = []
+    if isinstance(item, list):
+        for subitem in item:
+            f = {"@id": subitem["@id"], "messageFlow": subitem}
+            lucid_shapes.append(f)
+    elif isinstance(item, dict):
+        f = {"@id": item["@id"], "messageFlow": item}
+        lucid_shapes.append(f)
+    else:
+        print("Unexpected type for messageFlow:", type(item))
     return lucid_shapes
 
 
@@ -201,11 +223,6 @@ def get_lucid_json(bpmn: Dict[str, Any]):
     if "definitions" in bpmn_doc:
         definitions = bpmn_doc["definitions"]
 
-        collaboration = definitions["collaboration"]
-        collaboration_as_list = (
-            [collaboration] if not isinstance(collaboration, list) else collaboration
-        )
-
         processes = definitions["process"]
         processes_as_list = (
             [processes] if not isinstance(processes, list) else processes
@@ -222,8 +239,16 @@ def get_lucid_json(bpmn: Dict[str, Any]):
         else:
             shapes_dir = get_bpmn_shapes(planes, "bpmndi:BPMNShape")
 
-        vtes = parse_collaboration_list(collaboration_as_list)
-        processes_as_list += vtes
+        if "collaboration" in definitions:
+            collaboration = definitions["collaboration"]
+            collaboration_as_list = (
+                [collaboration]
+                if not isinstance(collaboration, list)
+                else collaboration
+            )
+            collabs = parse_collaboration_list(collaboration_as_list)
+            processes_as_list += collabs
+
         bpmn_edges = process_edges(planes)
         lucid_shapes = parse_processes_list(processes_as_list, shapes_dir)
         lucid_lines = parse_processes_lines_list(

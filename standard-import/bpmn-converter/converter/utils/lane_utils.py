@@ -45,6 +45,8 @@ def parse_participant_v2(participant: list, bpmn_shapes: dict):
         lucid_shape["lanes"] = [lane]
         lucid_shape["vertical"] = lane["isHorizontal"] is False
         lucid_shape["verticalLaneText"] = lane["isHorizontal"] is True
+        lucid_shape["title"] = lane["title"]
+        lane["title"] = ""
         lucid_shapes.append(lucid_shape)
 
     return lucid_shapes
@@ -60,7 +62,6 @@ def get_participant_lane_resource(lane, bpmn_shapes):
         pool_lane["title"] = ""
     if id in bpmn_shapes:
         lane_description = bpmn_shapes[id]
-        print(lane_description)
         lane_bb = {}
         if "omgdc:Bounds" in lane_description:
             lane_bb = lane_description["omgdc:Bounds"]

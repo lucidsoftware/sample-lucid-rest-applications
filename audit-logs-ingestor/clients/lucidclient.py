@@ -1,13 +1,18 @@
 from requests import get
+from datetime import datetime, timedelta, timezone
 import logging
 import dataaccess
 
 logger = logging.getLogger("log")
+DAYS_TO_PULL = timedelta(days=7)
 
 
 def get_audit_logs(token, connectors):
     logger.info("Sending request to retrieve Lucid audit logs...")
     request_url = "https://api.lucid.co/auditLogs"
+    request_params = {
+        "from": (datetime.now(timezone.utc) - DAYS_TO_PULL).isoformat()
+    }
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -24,7 +29,7 @@ def get_audit_logs(token, connectors):
 
     while loop_counter > 0:
         loop_counter -= 1
-        response = get(url=request_url, headers=headers)
+        response = get(url=request_url, headers=headers, params=request_params)
         response.raise_for_status()
 
         # Convert response to JSON

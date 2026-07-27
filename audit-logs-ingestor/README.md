@@ -6,6 +6,8 @@
 
 Run the tool manually to generate an OAuth2 token, which is then automatically refreshed to maintain continuous authentication. Once the token is generated, the tool can be scheduled as a cron job on Linux or a scheduled task on Windows. It continuously retrieves audit events from Lucid and forwards them to one or more configured connectors. This setup ensures secure and reliable storage of audit events from Lucid for long-term use.
 
+By default, the tool retrieves audit events from the previous seven days.
+
 # Setup.
 
 Follow the directions below to setup the script. There are images below

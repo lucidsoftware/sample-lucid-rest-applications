@@ -66,7 +66,7 @@ Follow the directions below to setup the script. There are images below
      - For `Start in`, enter the file path to the folder where you put the script
      - Hit `OK` to add the action
    - Select the `On a schedule` tab
-     - Select Repeat task every and choose a time frame between 5 - 30 minutes for a duration of Indefinitely
+     - Select **Repeat task every**, choose **5 minutes**, and set the duration to **Indefinitely**
      - Hit `OK` to add the trigger
    - Hit `OK` to create the task
 7. [Optional: Linux/Mac]
@@ -76,8 +76,8 @@ Follow the directions below to setup the script. There are images below
    - Scroll down to a new line
    - Create a new entry to run your job periodically like below:
      - `when to run` `folder to execute in` `file to execute`
-       - Example: `*/10 * * * *   cd /home/mbowers/lucid/michaelbowersrepo/ lucidauditlogs ; ./importlogs.py`
-     - The first section defines when to run. `*_/10 _ * * *` means every 10 minutes
+       - Example: `*/5 * * * * cd /path/to/audit-logs-ingestor && ./importlogs.py`
+     - The first section defines when to run. `*/5 * * * *` means every 5 minutes
      - The second section tells the job what folder to execute the files in
      - The third section is the file to execute.
    - Close crontab. (If using nano, Ctrl+O Enter, then Ctrl+X)

@@ -1,28 +1,24 @@
-from requests import get
 from datetime import datetime, timedelta, timezone
 import logging
-import dataaccess
+
+from requests import get
 
 logger = logging.getLogger("log")
-DAYS_TO_PULL = timedelta(days=7)
+AUDIT_LOG_WINDOW = timedelta(minutes=10)
 
 
 def get_audit_logs(token, connectors):
     logger.info("Sending request to retrieve Lucid audit logs...")
-    request_url = "https://api.lucid.co/auditLogs"
+    request_url = "https://api.lucid.co/v1/auditLogs"
+
     request_params = {
-        "from": (datetime.now(timezone.utc) - DAYS_TO_PULL).isoformat()
+        "from": (datetime.now(timezone.utc) - AUDIT_LOG_WINDOW).isoformat(),
     }
 
     headers = {
         "Authorization": f"Bearer {token}",
         "Lucid-Api-Version": f"{1}",
     }
-
-    # Read the existing data
-    link = dataaccess.get("link")
-    if link:
-        request_url = link
 
     # Set a loop counter to prevent infinite loops (shouldn't happen unless bug or system error)
     loop_counter = 1000
@@ -31,6 +27,9 @@ def get_audit_logs(token, connectors):
         loop_counter -= 1
         response = get(url=request_url, headers=headers, params=request_params)
         response.raise_for_status()
+        # Pagination links contain the complete query, so only send these parameters
+        # with the initial request.
+        request_params = None
 
         # Convert response to JSON
         json_data = response.json()
@@ -38,18 +37,16 @@ def get_audit_logs(token, connectors):
         # Count the number of items in the response
         json_count = len(json_data)
 
-        # Get the pagination link.
-        link = response.headers["Link"]
-        start_index = link.find("<") + 1
-        end_index = link.find(">")
-        new_url = link[start_index:end_index]
+        # Get the pagination link supplied by the API, if there is another page.
+        new_url = response.links.get("next", {}).get("url")
 
-        # If there are no new events or the pagination token is the same as the current URL, stop looping
-        if json_count == 0 or new_url == request_url:
+
+        # Stop when the time range is exhausted or the API does not advance its token.
+        if json_count == 0 or not new_url or new_url == request_url:
             logger.info(
-                f"{json_count} new audit log events found or identical pagination token. Stopping requests..."
+                "Audit log query complete. Stopping requests..."
             )
-            loop_counter = 0
+            break
         else:
             logger.info(
                 f"{json_count} new audit log events found. Contining to next page..."
@@ -57,6 +54,3 @@ def get_audit_logs(token, connectors):
             for connector in connectors:
                 connector.store_events(json_data)
             request_url = new_url
-
-        # Always update pagination link to avoid pulling duplicate logs.
-        dataaccess.set("link", new_url)
